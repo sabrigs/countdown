@@ -10,8 +10,30 @@ const editForm = document.querySelector("#editForm");
 const inputTitle = document.querySelector("#inputTitle");
 const inputDate = document.querySelector("#inputDate");
 
-// Default event date
+// Default event
+let titleEvent = "2027 is coming!";
 let dateEvent = new Date("2027-01-01T00:00:00");
+
+// Local storage
+const savedTitle = localStorage.getItem("title");
+const savedDate = localStorage.getItem("date");
+
+// Load saved values
+if (savedTitle) {
+    titleEvent = savedTitle;
+}
+
+if (savedDate) {
+    dateEvent = new Date(savedDate);
+}
+
+// Display values
+displayTitle.innerHTML = titleEvent;
+inputTitle.value = titleEvent;
+
+if (savedDate) {
+    inputDate.value = savedDate || "2027-01-01T00:00";
+}
 
 // Trigger from button click
 editForm.addEventListener("submit", (event) => {
@@ -43,21 +65,6 @@ editButton.addEventListener("click", () => {
 closeDialog.addEventListener("click", () => {
     dialog.close();
 })
-
-// Local storage
-const savedTitle = localStorage.getItem("title");
-const savedDate = localStorage.getItem("date");
-
-// Se existe uma data salva (truthy)
-if (savedTitle) {
-    displayTitle.innerHTML = savedTitle;
-    inputTitle.value = savedTitle;
-}
-
-if (savedDate) {
-    dateEvent = new Date(savedDate);
-    inputDate.value = savedDate;
-}
 
 function updateCounter() {
     const now = new Date();
