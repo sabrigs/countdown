@@ -31,9 +31,7 @@ if (savedDate) {
 displayTitle.innerHTML = titleEvent;
 inputTitle.value = titleEvent;
 
-if (savedDate) {
-    inputDate.value = savedDate || "2027-01-01T00:00";
-}
+inputDate.value = savedDate || "2027-01-01T00:00";
 
 // Trigger from button click
 editForm.addEventListener("submit", (event) => {
