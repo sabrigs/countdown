@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <header>
+            <img src="img/logo.svg" alt="">
+            <button id="editButton" class="secondaryButton">Edit</button>
+        </header>
+        <section id="countdownSection">
+            <h1 id="displayTitle">
+                Your event title
+            </h1>
+            <div id="countdown">
+                <div class="group">
+                    <div class="box">
+                        <p id="displayCounterDay">00</p>
+                    </div>
+                    <span class="caption">Days</span>
+                </div>
+
+                <span class="spacer"></span>
+
+                <div class="group">
+                    <div class="box">
+                        <p id="displayCounterHour">00</p>
+                    </div>
+                    <span class="caption">Hours</span>
+                </div>
+                
+                <span class="dots">:</span>
+                
+                <div class="group">
+                    <div class="box">
+                        <p id="displayCounterMin">00</p>
+                    </div>
+                    <span class="caption">Minutes</span>
+                </div>
+                <span class="dots">:</span>
+                <div class="group">
+                    <div class="box">
+                        <p id="displayCounterSec">00</p>
+                    </div>
+                    <span class="caption">Seconds</span>
+                </div>
+            </div>
+        </section>
+        <dialog id="editDialog">
+            <form id="editForm">
+                <div class="input">
+                    <label for="inputTitle">Event title</label>
+                    <input id="inputTitle" type="text" name="inputTitle">
+                </div>
+                <div class="input">
+                    <label for="inputDate">Event date</label>
+                    <input id="inputDate" type="datetime-local" name="inputDate">
+                </div>
+                <div class="actionBar">
+                    <button id="closeButton" class="secondaryButton">Close</button>
+                    <button class="primaryButton" type="submit">Save</button>
+                </div>
+            </form>
+        </dialog>
+        <nav>
+            <ol>
+                <li><a href="index.html" class="secondaryButton">Coundown</a></li>
+                <li><a href="about.html" class="secondaryButton">About</a></li>
+                <li><a href="ask.html" class="secondaryButton">Ask</a></li>
+            </ol>
+        </nav>
+        <footer>
+            <p>Made by <a href="https://github.com/sabrigs">Sabrina</a></p>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

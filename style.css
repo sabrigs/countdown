@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Boldonse&family=DM+Serif+Text&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    /* Colors */
+    --color-accent: #384CAB;
+    --color-on-accent: #FFF9EC;
+    --color-background: #FFF9EC;
+    --color-surface: #FFFDF8;
+    --color-interaction: #F5F0E9;
+    --color-interaction-secondary-hover: #E1DFE2; 
+    --color-interaction-primary-hover: #2D3C85; 
+    --color-text: #384CAB;
+    --color-text-dark: #1F2B63;
+    --color-text-muted: #6B75A8;
+    --color-border: #EDE7DA;
+    --color-a11y: #D32F2F;
+
+    /* Typography */
+    --font-display: 'DM Serif Display', serif;
+    --font-number: "Boldonse", system-ui;
+    --font-body: 'Inter', sans-serif;
+
+    /* Font sizes */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 20px;
+    --text-xl: 32px;
+    --text-2xl: 48px;
+    --text-3xl: 64px;
+
+    /* Border radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+
+    /* Shadows */
+    --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Components */
+.secondaryButton, .primaryButton {
+    box-sizing: border-box;
+    height: 48px;
+    padding: 8px 24px;
+    border-radius:64px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.secondaryButton {
+    background-color: var(--color-interaction);
+    color: var(--color-text);
+}
+
+.secondaryButton:hover {
+    background-color: var(--color-interaction-secondary-hover);
+}
+
+.primaryButton {
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+}
+
+.primaryButton:hover {
+    background-color: var(--color-interaction-primary-hover);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+}
+
+.secondaryButton:focus-visible, .primaryButton:focus-visible, a:focus-visible {
+    outline-offset: 2px;
+    outline: 3px dashed var(--color-a11y);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--color-background);
+    background-image: url("img/pattern.svg");
+    font-family: var(--font-body);
+}
+
+main {
+    margin: 24px;
+    min-height: 93vh;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+ol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-direction: row;
+}
+
+li {
+    list-style-type: none;
+}
+
+li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#countdownSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+#displayTitle {
+    font-size: clamp(3rem, 7vw, 6rem); 
+    font-family: var(--font-display);
+    color: var(--color-text);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#countdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#countdown span.spacer {
+    width: clamp(28px, 5vw, 48px); 
+}
+
+#countdown span.dots {
+    font-size: 5.5rem;
+    font-family: var(--font-display);
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: 34px;
+}
+
+#countdown div.box {
+    background-color: var(--color-accent);
+    border-radius: 16px;
+
+    padding: clamp(16px, 2vw, 24px) clamp(12px, 1.5vw, 16px);
+
+    width: clamp(50px, 12vw, 162px); 
+    height: clamp(60px, 13vw, 170px); 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#countdown div.box p {
+    color: var(--color-on-accent);
+    font-family: var(--font-number);
+    font-size: clamp(2rem, 5vw, 4rem); 
+}
+
+#countdown span.caption {
+    font-size: 1rem;
+    color: var(--color-text);
+}
+
+#countdown div.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#countdownEdit {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#editButton {
+    /* anchor-name: --edit-button; */
+    width: fit-content;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+#editDialog {
+    background-color: #fffdfa;
+    border-radius: 16px;
+    width: 100vw;
+    
+    width: calc(100% - 48px);
+    max-width: 400px;
+
+    margin: auto;
+    box-sizing: border-box;
+
+    padding: 24px 16px;
+    margin: auto;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
+    border: 1px solid var(--color-border);
+    
+    /* position: fixed; */
+    /* position-anchor: --edit-button; */
+    /* position-area: top; */
+}
+
+#inputTitle, #inputDate {
+    border: 2px solid var(--color-border);
+    border-radius:64px;
+    
+    box-sizing: border-box;
+    height: 48px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+}
+
+#inputTitle:focus-visible, #inputDate:focus-visible {
+    outline-offset: 2px;
+    outline: 3px dashed var(--color-a11y);
+}
+
+#inputDate::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column; 
+    align-items: stretch;
+    gap: 16px;
+}
+
+
+
+.actionBar {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+}
+
+
+label {
+    color: var(--color-text-dark);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: var(--color-accent);
+    border-radius: 24px;
+}
+
+footer p {
+    font-family: var(--font-body);
+    color: var(--color-accent);
+}
