@@ -85,6 +85,9 @@ function updateCounter() {
     displayCounterHour.innerHTML = `${hour}`
     displayCounterMin.innerHTML = `${minute}`
     displayCounterSec.innerHTML = `${sec}`
+
+    document.title = `${day}d ${hour}h ${minute}m ${sec}s`;
+
 }
 updateCounter();
 setInterval(updateCounter, 1000);
