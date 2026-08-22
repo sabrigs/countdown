@@ -86,5 +86,5 @@ function updateCounter() {
     displayCounterMin.innerHTML = `${minute}`
     displayCounterSec.innerHTML = `${sec}`
 }
-
+updateCounter();
 setInterval(updateCounter, 1000);
