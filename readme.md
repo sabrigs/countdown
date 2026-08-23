@@ -5,4 +5,4 @@ The idea was to create a simple countdown tool where you can keep track of a spe
 
 Through this project, I practiced working with native web components such as inputs, buttons, and dialogs, while combining front-end elements with JavaScript logic and local data storage.
 
-<a href="github/page.png"></a>
+<img src="github/page.png" alt="PAge with a countdown in center with details in blue.">
