@@ -141,6 +141,7 @@ li a {
     font-size: clamp(3rem, 7vw, 6rem); 
     font-family: var(--font-display);
     color: var(--color-text);
+    text-align: center;
 
     display: flex;
     align-items: center;
@@ -158,7 +159,7 @@ li a {
 }
 
 #countdown span.dots {
-    font-size: 5.5rem;
+    font-size: clamp(3rem, 7vw, 6rem);
     font-family: var(--font-display);
     color: var(--color-accent);
     font-weight: 500;
@@ -168,12 +169,8 @@ li a {
 #countdown div.box {
     background-color: var(--color-accent);
     border-radius: 16px;
-
-    padding: clamp(16px, 2vw, 24px) clamp(12px, 1.5vw, 16px);
-
-    width: clamp(50px, 12vw, 162px); 
-    height: clamp(60px, 13vw, 170px); 
-
+    width: clamp(80px, 16vw, 162px); 
+    height: clamp(90px, 18vw, 170px); 
     display: flex;
     align-items: center;
     justify-content: center;
