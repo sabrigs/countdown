@@ -6,7 +6,6 @@
     navigation: auto;
 }
 
-
 :root {
     /* Colors */
     --color-accent: #384CAB;
@@ -18,7 +17,6 @@
     --color-interaction-primary-hover: #2D3C85; 
     --color-text: #384CAB;
     --color-text-dark: #1F2B63;
-    --color-text-muted: #6B75A8;
     --color-border: #EDE7DA;
     --color-a11y: #D32F2F;
 
@@ -28,65 +26,21 @@
     --font-body: 'Inter', sans-serif;
 
     /* Font sizes */
-    --text-xs: 12px;
-    --text-sm: 14px;
-    --text-md: 16px;
-    --text-lg: 20px;
-    --text-xl: 32px;
-    --text-2xl: 48px;
-    --text-3xl: 64px;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-md: 1rem;
+    --text-lg: 1.25rem;
+    --text-xl: 2rem;
+    --text-2xl: 3rem;
+    --text-3xl: 4rem;
+    --text-4xl: 6rem;
 
     /* Border radius */
-    --radius-sm: 8px;
-    --radius-md: 12px;
-    --radius-lg: 16px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
 
     /* Shadows */
-    --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Components */
-.secondaryButton, .primaryButton {
-    box-sizing: border-box;
-    height: 48px;
-    padding: 8px 24px;
-    border-radius:64px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 500;
-    font-family: var(--font-body);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.secondaryButton {
-    background-color: var(--color-interaction);
-    color: var(--color-text);
-}
-
-.secondaryButton:hover {
-    background-color: var(--color-interaction-secondary-hover);
-}
-
-.primaryButton {
-    background-color: var(--color-accent);
-    color: var(--color-on-accent);
-}
-
-.primaryButton:hover {
-    background-color: var(--color-interaction-primary-hover);
-}
-
-.input {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 4px;
-}
-
-.secondaryButton:focus-visible, .primaryButton:focus-visible, a:focus-visible {
-    outline-offset: 2px;
-    outline: 3px dashed var(--color-a11y);
+    --shadow-overlay: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
 }
 
 * {
@@ -101,13 +55,79 @@ body {
     font-family: var(--font-body);
 }
 
+.button {
+    box-sizing: border-box;
+    height: 48px;
+    padding: 8px 24px;
+    border-radius:64px;
+    border: none;
+    font-size: var(--text-md);
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.primaryButton {
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+}
+
+.primaryButton:hover {
+    background-color: var(--color-interaction-primary-hover);
+}
+
+.secondaryButton {
+    background-color: var(--color-interaction);
+    color: var(--color-text);
+}
+
+.secondaryButton:hover {
+    background-color: var(--color-interaction-secondary-hover);
+}
+
+.secondaryButton:focus-visible, .primaryButton:focus-visible, a:focus-visible {
+    outline-offset: 2px;
+    outline: 3px dashed var(--color-a11y);
+}
+
+.body {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 16px;
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(3rem, 7vw, 6rem); 
+    font-family: var(--font-display);
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-body);
+    color: var(--color-accent);
+    border-radius: var(--radius-lg);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 main {
-    padding: 24px;
-    min-height: 100vh;
-    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 24px;
+    min-height: 100vh;
 }
 
 header {
@@ -117,22 +137,11 @@ header {
     gap: 24px;
 }
 
-ol {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-    flex-direction: row;
-}
-
-li {
-    list-style-type: none;
-}
-
-li a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
+#editButton {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: fit-content;
 }
 
 #countdownSection {
@@ -142,21 +151,43 @@ li a {
     gap: 32px;
 }
 
-#displayTitle, .title {
+#displayTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: clamp(3rem, 7vw, 6rem); 
     font-family: var(--font-display);
     color: var(--color-text);
     text-align: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #countdown {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#countdown div.group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+#countdown div.box {
+    background-color: var(--color-accent);
+    border-radius: var(--radius-md);
+    width: clamp(80px, 16vw, 162px); 
+    height: clamp(90px, 18vw, 170px); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#countdown div.box p {
+    color: var(--color-on-accent);
+    font-family: var(--font-number);
+    font-size: clamp(2rem, 5vw, 4rem); 
 }
 
 #countdown span.spacer {
@@ -171,76 +202,49 @@ li a {
     margin-bottom: 34px;
 }
 
-#countdown div.box {
-    background-color: var(--color-accent);
-    border-radius: 16px;
-    width: clamp(80px, 16vw, 162px); 
-    height: clamp(90px, 18vw, 170px); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#countdown div.box p {
-    color: var(--color-on-accent);
-    font-family: var(--font-number);
-    font-size: clamp(2rem, 5vw, 4rem); 
-}
-
 #countdown span.caption {
-    font-size: 1rem;
+    font-size: var(--text-md);
     color: var(--color-text);
 }
 
-#countdown div.group {
+#editDialog {
+    margin: auto;
+    max-width: 400px;
+    width: calc(100% - 48px);
+    padding: 24px 16px;
+    background-color: #fffdfa;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-overlay);
+}
+
+#editForm {
+    display: flex;
+    flex-direction: column; 
+    align-items: stretch;
+    gap: 16px;
+}
+
+.inputBox {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    align-items: stretch;
+    gap: 4px;
 }
 
-#countdownEdit {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#editButton {
-    /* anchor-name: --edit-button; */
-    width: fit-content;
-    position: absolute;
-    top: 24px;
-    right: 24px;
-}
-
-#editDialog {
-    background-color: #fffdfa;
-    border-radius: 16px;
-    width: 100vw;
-    
-    width: calc(100% - 48px);
-    max-width: 400px;
-
-    margin: auto;
-    box-sizing: border-box;
-
-    padding: 24px 16px;
-    margin: auto;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.10);
-    border: 1px solid var(--color-border);
-    
-    /* position: fixed; */
-    /* position-anchor: --edit-button; */
-    /* position-area: top; */
+label {
+    color: var(--color-text-dark);
+    font-family: var(--font-body);
+    font-size: var(--text-md);
 }
 
 #inputTitle, #inputDate {
-    border: 2px solid var(--color-border);
-    border-radius:64px;
-    
-    box-sizing: border-box;
     height: 48px;
     padding: 8px 16px;
-    font-size: 1rem;
+    box-sizing: border-box;
+    border: 2px solid var(--color-border);
+    border-radius:64px;
+    font-size: var(--text-md);
     font-family: var(--font-body);
 }
 
@@ -253,60 +257,11 @@ li a {
     cursor: pointer;
 }
 
-#editForm {
-    display: flex;
-    flex-direction: column; 
-    align-items: stretch;
-    gap: 16px;
-}
-
-
-
 .actionBar {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 8px;
-}
-
-
-label {
-    color: var(--color-text-dark);
-    font-family: var(--font-body);
-    font-size: 1rem;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-}
-
-footer a, a {
-    text-decoration: none;
-    font-weight: 600;
-    font-family: var(--font-body);
-    color: var(--color-accent);
-    border-radius: 24px;
-}
-
-footer p {
-    font-family: var(--font-body);
-    color: var(--color-accent);
-}
-
-#about, #contact {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.body {
-    font-family: var(--font-body);
-    color: var(--color-text-dark);
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 16px;
 }
 
 #bottom {
@@ -316,15 +271,42 @@ footer p {
     gap: 48px;
 }
 
+ol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 16px;
+}
 
-.title {
-    font-size: clamp(3rem, 7vw, 6rem); 
-    font-family: var(--font-display);
-    color: var(--color-text);
-    text-align: center;
-    margin-bottom: 32px;
+li {
+    list-style-type: none;
+}
 
+li a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+li a:hover {
+    text-decoration: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+footer p {
+    font-family: var(--font-body);
+    color: var(--color-accent);
+}
+
+/* Other pages */
+#about, #contact {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
