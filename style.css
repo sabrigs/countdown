@@ -137,7 +137,7 @@ li a {
     gap: 32px;
 }
 
-#displayTitle {
+#displayTitle, .title {
     font-size: clamp(3rem, 7vw, 6rem); 
     font-family: var(--font-display);
     color: var(--color-text);
@@ -287,4 +287,19 @@ footer a {
 footer p {
     font-family: var(--font-body);
     color: var(--color-accent);
+}
+
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 16px;
 }
