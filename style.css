@@ -155,7 +155,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: clamp(3rem, 7vw, 6rem); 
+    font-size: clamp(2.75rem, 7vw, 6rem); 
     font-family: var(--font-display);
     color: var(--color-text);
     text-align: center;
@@ -187,7 +187,7 @@ header {
 #countdown div.box p {
     color: var(--color-on-accent);
     font-family: var(--font-number);
-    font-size: clamp(2rem, 5vw, 4rem); 
+    font-size: clamp(1.6rem, 4vw, 3rem); 
 }
 
 #countdown span.spacer {
